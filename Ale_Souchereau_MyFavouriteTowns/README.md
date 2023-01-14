@@ -1,4 +1,7 @@
-# AleSouchereauMyFavouriteTowns
+# Alex's Favourite Towns
+
+This is a single page web application about some of the best towns in the Great Lakes region.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
