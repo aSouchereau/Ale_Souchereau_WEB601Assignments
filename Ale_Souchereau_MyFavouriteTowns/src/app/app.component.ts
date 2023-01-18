@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Ale_Souchereau_MyFavouriteTowns';
+  name = 'Alex Souchereau';
 }
