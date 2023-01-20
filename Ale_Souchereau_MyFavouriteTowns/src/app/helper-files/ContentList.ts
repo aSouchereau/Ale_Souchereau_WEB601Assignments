@@ -37,7 +37,8 @@ export class ContentList {
    * @returns HTML content string
    */
   getContentItem(index: number) {
-    return `
+    if (index <= this.getContentLength() - 1 && index >= 0) {
+      return `
       <h2>${this.content[index].title}</h2>
 
       <p>${this.content[index].description}</p>
@@ -48,5 +49,12 @@ export class ContentList {
 
       <p>${this.content[index].type}</p>
     `;
+    } else {
+      return `
+      <h2>Error</h2>
+      <p>No content found at index ${index}</p>
+      `;
+    }
+
   }
 }
