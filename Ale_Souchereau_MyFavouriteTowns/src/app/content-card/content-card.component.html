@@ -1,1 +1,10 @@
-<p>content-card works!</p>
+
+{{addContentItems()}}
+<div class="content-list-wrapper">
+  <ul>
+    <li> <div [innerHTML]="contentList.getContentItem(0)"></div></li>
+    <li> <div [innerHTML]="contentList.getContentItem(1)"></div></li>
+    <li> <div [innerHTML]="contentList.getContentItem(2)"></div></li>
+    <li> <div [innerHTML]="contentList.getContentItem(3)"></div></li>
+  </ul>
+</div>
