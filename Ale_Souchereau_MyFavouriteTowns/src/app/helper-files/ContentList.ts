@@ -1,6 +1,6 @@
 import {Content} from "./content-interface";
 
-class ContentList {
+export class ContentList {
   private content: Content[];
 
   constructor() {
@@ -42,7 +42,7 @@ class ContentList {
 
       <p>${this.content[index].description}</p>
 
-      <span> - by ${this.content[index].creator}</span>
+      <span> - posted by ${this.content[index].creator}</span>
 
       <img src="${this.content[index].imgURL}" alt="Image: ${this.content[index].title}" />
 
