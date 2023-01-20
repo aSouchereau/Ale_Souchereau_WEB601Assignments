@@ -44,7 +44,7 @@ export class ContentList {
 
       <span> - posted by ${this.content[index].creator}</span>
 
-      <img src="${this.content[index].imgURL}" alt="Image: ${this.content[index].title}" />
+      <img src="${this.content[index].imgURL}" alt="Image: ${this.content[index].title}" width="100%" />
 
       <p>${this.content[index].type}</p>
     `;

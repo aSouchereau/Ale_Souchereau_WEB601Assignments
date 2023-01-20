@@ -8,7 +8,7 @@ import { ContentList } from "../helper-files/ContentList";
 })
 export class ContentCardComponent {
   contentList: ContentList = new ContentList();
-  contentItems() {
+  addContentItems() {
     this.contentList.addContent(
       {
         id: 1,
