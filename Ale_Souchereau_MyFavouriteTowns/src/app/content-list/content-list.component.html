@@ -3,8 +3,8 @@
   <input type="text" name="search" id="search" [(ngModel)]="searchTerm">
   <button (click)="onSearchSubmit()">Search</button>
   <br>
-  <span *ngIf="SearchResult.success == true" style="color: green">Content with that title exists!</span>
-  <span *ngIf="SearchResult.success == false" style="color: red">No content with that title exists...</span>
+  <span *ngIf="SearchResult.success == true" class="search-success-msg">Content with that title exists!</span>
+  <span *ngIf="SearchResult.success == false" class="search-fail-msg">No content with that title exists...</span>
 </form>
 
 
