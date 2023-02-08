@@ -8,6 +8,13 @@ import {Content} from "../helper-files/content-interface";
 })
 export class ContentListComponent {
 
+  searchTerm: string = ""
+
+  SearchResult: any = {
+    success: undefined,
+    content: []
+  }
+
   ContentList: Content[] = [
     {
       id: 1,
@@ -15,7 +22,7 @@ export class ContentListComponent {
       description: 'Elora is a historical community in the township of Centre Wellington. It is home to an estimated 7756 residents.',
       creator: 'Alex Souchereau',
       imgURL: './assets/img/elora.webp',
-      type: 'Community',
+      type: 'community',
       tags: [ 'Southwest', 'Ontario', 'Wellington']
     },
     {
@@ -24,7 +31,7 @@ export class ContentListComponent {
       description: 'Huntsville is a town in the District Municipality of Muskoka. It is home to 19,816 residents as of 2016.',
       creator: 'Alex Souchereau',
       imgURL: './assets/img/huntsville.jpg',
-      type: 'Town',
+      type: 'town',
       tags: [ 'Central', 'Ontario', 'Muskoka']
     },
     {
@@ -33,58 +40,53 @@ export class ContentListComponent {
       description: 'Renfrew is a town in Eastern Ontario, located about an hour west of the City of Ottawa. It is home to 8223 residents as of 2016.',
       creator: 'Alex Souchereau',
       imgURL: './assets/img/renfrew.jpg',
+      type: 'town',
       tags: [ 'Eastern', 'Ontario', 'Ottawa']
     },
     {
       id: 4,
-      title: 'Renfrew1, ON',
+      title: 'South River, ON',
       description: 'Renfrew is a town in Eastern Ontario, located about an hour west of the City of Ottawa. It is home to 8223 residents as of 2016.',
       creator: 'Alex Souchereau',
-      imgURL: './assets/img/renfrew.jpg',
-      type: 'Town'
+      type: 'village',
+      tags: [ 'Central', 'Ontario', 'Parry Sound']
     },
     {
       id: 5,
-      title: 'Renfrew2, ON',
+      title: 'Sundridge, ON',
       description: 'Renfrew is a town in Eastern Ontario, located about an hour west of the City of Ottawa. It is home to 8223 residents as of 2016.',
       creator: 'Alex Souchereau',
-      type: 'Town',
-      tags: [ 'Eastern', 'Ontario', 'Ottawa']
+      type: 'village',
+      tags: [ 'Central', 'Ontario', 'Parry Sound']
     },
     {
       id: 6,
-      title: 'Renfrew3, ON',
+      title: 'Burks Falls, ON',
       description: 'Renfrew is a town in Eastern Ontario, located about an hour west of the City of Ottawa. It is home to 8223 residents as of 2016.',
       creator: 'Alex Souchereau',
-      imgURL: './assets/img/renfrew.jpg',
-      type: 'Town',
-      tags: [ 'Eastern', 'Ontario', 'Ottawa']
+      type: 'village',
+      tags: [ 'Central', 'Ontario', 'Parry Sound']
     },
     {
       id: 7,
-      title: 'Renfrew4, ON',
+      title: 'Frankenmuth, MI',
       description: 'Renfrew is a town in Eastern Ontario, located about an hour west of the City of Ottawa. It is home to 8223 residents as of 2016.',
       creator: 'Alex Souchereau',
-      imgURL: './assets/img/renfrew.jpg',
-      type: 'Town',
-      tags: [ 'Eastern', 'Ontario', 'Ottawa']
+      imgURL: './assets/img/frankenmuth.jpg',
+      tags: [ 'Eastern', 'Michigan', 'Saginaw']
     },
     {
       id: 8,
-      title: 'Renfrew5, ON',
+      title: 'Tobermory, ON',
       description: 'Renfrew is a town in Eastern Ontario, located about an hour west of the City of Ottawa. It is home to 8223 residents as of 2016.',
       creator: 'Alex Souchereau',
-      imgURL: './assets/img/renfrew.jpg',
-      type: 'Town',
-      tags: [ 'Eastern', 'Ontario', 'Ottawa']
+      imgURL: './assets/img/tobermory.jpg',
+      tags: [ 'Southwestern', 'Ontario', 'Bruce']
     }
   ]
 
-  imgClick(message : string) {
-    console.log(message);
+
+  onSearchSubmit() {
+    this.SearchResult.success = this.ContentList.filter(c => c.title === this.searchTerm).length > 0;
   }
-
-
-
-
 }

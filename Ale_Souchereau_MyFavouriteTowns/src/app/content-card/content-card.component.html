@@ -1,14 +1,28 @@
-<div class="content-list-wrapper">
-  <ul>
-    <li> <div [innerHTML]=""></div></li>
-    <li> <div [innerHTML]=""></div></li>
-    <li> <div [innerHTML]=""></div></li>
-  </ul>
-</div>
+<ul class="content-list-wrapper">
+  <li *ngFor="let content of contentList;">
+    <div class="content-card content-{{content.type}}">
 
-<div class="content-list-wrapper">
-  <ul>
-    <li> <div [innerHTML]=""></div></li>
-    <li> <div [innerHTML]=""></div></li>
-  </ul>
-</div>
+      <header>
+        <h2>{{ content.title }}</h2>
+        <span *ngIf="content.type">{{content.type | titlecase}}</span>
+      </header>
+
+      <div class="card-img-wrapper" *ngIf="content.imgURL">
+        <img style="background-image: url({{ content.imgURL }});"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
+      </div>
+
+      <p>{{ content.description }}</p>
+
+      <footer>
+
+        <div class="content-tag-wrapper" *ngIf="content.tags">
+          <span *ngFor="let tag of content.tags; index as t" class="content-tag">{{tag}}</span>
+        </div>
+        {{ content.creator }}
+      </footer>
+
+    </div>
+  </li>
+</ul>

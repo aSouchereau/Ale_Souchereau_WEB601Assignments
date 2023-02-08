@@ -1,28 +1,21 @@
-<ul class="content-list-wrapper">
-  <li *ngFor="let content of ContentList; index as i;">
-    <div *ngIf="i < 5" class="content-card">
+<h1>Content</h1>
+<form>
+  <input type="text" name="search" id="search" [(ngModel)]="searchTerm">
+  <button (click)="onSearchSubmit()">Search</button>
+  <br>
+  <span *ngIf="SearchResult.success == true" style="color: green">Content with that title exists!</span>
+  <span *ngIf="SearchResult.success == false" style="color: red">No content with that title exists...</span>
+</form>
 
-      <header>
-        <h2>{{ content.title }}</h2>
-        <span *ngIf="content.type">{{content.type}}</span>
-      </header>
 
-      <div class="card-img-wrapper" *ngIf="content.imgURL">
-         <img style="background-image: url({{ content.imgURL }});"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
-      </div>
+<h2>Towns</h2>
+<app-content-card [contentList]="ContentList | filterContent:'town'"></app-content-card>
 
-      <p>{{ content.description }}</p>
+<h2>Communities</h2>
+<app-content-card [contentList]="ContentList | filterContent:'community'"></app-content-card>
 
-      <footer>
+<h2>Villages</h2>
+<app-content-card [contentList]="ContentList | filterContent:'village'"></app-content-card>
 
-        <div class="content-tag-wrapper" *ngIf="content.tags">
-          <span *ngFor="let tag of content.tags; index as t" class="content-tag">{{tag}}</span>
-        </div>
-        {{ content.creator }}
-      </footer>
-
-    </div>
-  </li>
-</ul>
+<h2>Other</h2>
+<app-content-card [contentList]="ContentList | filterContent"></app-content-card>

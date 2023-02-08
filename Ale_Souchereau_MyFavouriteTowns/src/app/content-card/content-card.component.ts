@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {Content} from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-content-card',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./content-card.component.scss'],
 })
 export class ContentCardComponent {
+  @Input() contentList: Content[] = [];
 
+  imgClick(message : string) {
+    console.log(message);
+  }
 }
