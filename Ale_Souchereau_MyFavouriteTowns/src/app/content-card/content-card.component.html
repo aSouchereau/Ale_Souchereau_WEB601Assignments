@@ -1,6 +1,6 @@
 <ul class="content-list-wrapper">
   <li *ngFor="let content of contentList;">
-    <div class="content-card content-{{content.type}}">
+    <div class="content-card content-{{content.type}}" id="content-card-{{content.id}}">
 
       <header>
         <h2>{{ content.title }}</h2>
