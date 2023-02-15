@@ -7,7 +7,15 @@ import {Content} from "../helper-files/content-interface";
   styleUrls: ['./content-card.component.scss'],
 })
 export class ContentCardComponent {
-  @Input() contentList: Content[] = [];
+  @Input() content: Content = {
+    id: 0,
+    title: '',
+    description: '',
+    creator: '',
+    imgURL: '',
+    type: '',
+    tags: []
+  };
 
   imgClick(message : string) {
     console.log(message);

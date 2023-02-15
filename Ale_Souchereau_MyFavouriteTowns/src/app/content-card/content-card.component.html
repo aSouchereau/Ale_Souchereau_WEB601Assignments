@@ -1,36 +1,30 @@
-<ul class="content-list-wrapper">
-  <li *ngFor="let content of contentList;">
-    <div class="content-card content-{{content.type}}" id="content-card-{{content.id}}">
+<div class="content-card content-{{content.type}}" id="content-card-{{content.id}}">
+  <header>
+    <h2>{{ content.title }}</h2>
+    <span *ngIf="content.type">{{content.type | titlecase}}</span>
+  </header>
 
-      <header>
-        <h2>{{ content.title }}</h2>
-        <span *ngIf="content.type">{{content.type | titlecase}}</span>
-      </header>
+  <ng-container class="card-img-wrapper" *ngIf="content.imgURL; then customImg; else defaultImg;">
+  </ng-container>
 
-      <ng-container class="card-img-wrapper" *ngIf="content.imgURL; then customImg; else defaultImg;">
-      </ng-container>
-      <ng-template #customImg>
-        <img style="background-image: url({{ content.imgURL }});"
-             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-             alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
-      </ng-template>
-      <ng-template #defaultImg>
-        <img style="background-image: url(/assets/img/default.jpg);"
-             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-             alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
-      </ng-template>
+  <ng-template #customImg>
+    <img style="background-image: url({{ content.imgURL }});"
+         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+         alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
+  </ng-template>
 
+  <ng-template #defaultImg>
+    <img style="background-image: url(/assets/img/default.jpg);"
+         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+         alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
+  </ng-template>
 
-      <p>{{ content.description }}</p>
+  <p>{{ content.description }}</p>
 
-      <footer>
-
-        <div class="content-tag-wrapper" *ngIf="content.tags">
-          <span *ngFor="let tag of content.tags; index as t" class="content-tag">{{tag}}</span>
-        </div>
-        {{ content.creator }}
-      </footer>
-
+  <footer>
+    <div class="content-tag-wrapper" *ngIf="content.tags">
+      <span *ngFor="let tag of content.tags; index as t" class="content-tag">{{tag}}</span>
     </div>
-  </li>
-</ul>
+    {{ content.creator }}
+  </footer>
+</div>

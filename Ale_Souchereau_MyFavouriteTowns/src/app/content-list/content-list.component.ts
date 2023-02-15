@@ -10,12 +10,12 @@ export class ContentListComponent {
 
   searchTerm: string = ""
 
-  SearchResult: any = {
+  searchResult: any = {
     success: undefined,
     content: []
   }
 
-  ContentList: Content[] = [
+  contentList: Content[] = [
     {
       id: 1,
       title: 'Elora, ON',
@@ -87,6 +87,6 @@ export class ContentListComponent {
 
 
   onSearchSubmit() {
-    this.SearchResult.success = this.ContentList.filter(c => c.title === this.searchTerm).length > 0;
+    this.searchResult.success = this.contentList.filter(c => c.title === this.searchTerm).length > 0;
   }
 }

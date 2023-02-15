@@ -3,19 +3,26 @@
   <input type="text" name="search" id="search" [(ngModel)]="searchTerm">
   <button (click)="onSearchSubmit()">Search</button>
   <br>
-  <span *ngIf="SearchResult.success == true" class="search-success-msg">Content with that title exists!</span>
-  <span *ngIf="SearchResult.success == false" class="search-fail-msg">No content with that title exists...</span>
+  <span *ngIf="searchResult.success == true" class="search-success-msg">Content with that title exists!</span>
+  <span *ngIf="searchResult.success == false" class="search-fail-msg">No content with that title exists...</span>
 </form>
 
-
 <h2>Towns</h2>
-<app-content-card [contentList]="ContentList | filterContent:'town'"></app-content-card>
+<div class="content-list-wrapper">
+  <app-content-card *ngFor="let filteredItem of contentList | filterContent:'town'" [content]="filteredItem" ></app-content-card>
+</div>
 
 <h2>Communities</h2>
-<app-content-card [contentList]="ContentList | filterContent:'community'"></app-content-card>
+<div class="content-list-wrapper">
+  <app-content-card *ngFor="let filteredItem of contentList | filterContent:'community'" [content]="filteredItem"></app-content-card>
+</div>
 
 <h2>Villages</h2>
-<app-content-card [contentList]="ContentList | filterContent:'village'"></app-content-card>
+<div class="content-list-wrapper">
+  <app-content-card *ngFor="let filteredItem of contentList | filterContent:'village'" [content]="filteredItem"></app-content-card>
+</div>
 
 <h2>Other</h2>
-<app-content-card [contentList]="ContentList | filterContent"></app-content-card>
+<div class="content-list-wrapper">
+  <app-content-card *ngFor="let filteredItem of contentList | filterContent" [content]="filteredItem"></app-content-card>
+</div>
