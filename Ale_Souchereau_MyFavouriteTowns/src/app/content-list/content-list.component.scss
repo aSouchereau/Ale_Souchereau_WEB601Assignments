@@ -1,3 +1,10 @@
+.content-list-wrapper {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .search-success-msg {
   color: green;
 }
