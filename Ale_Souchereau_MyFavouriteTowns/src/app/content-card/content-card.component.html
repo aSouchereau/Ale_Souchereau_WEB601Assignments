@@ -7,11 +7,19 @@
         <span *ngIf="content.type">{{content.type | titlecase}}</span>
       </header>
 
-      <div class="card-img-wrapper" *ngIf="content.imgURL">
+      <ng-container class="card-img-wrapper" *ngIf="content.imgURL; then customImg; else defaultImg;">
+      </ng-container>
+      <ng-template #customImg>
         <img style="background-image: url({{ content.imgURL }});"
              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
              alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
-      </div>
+      </ng-template>
+      <ng-template #defaultImg>
+        <img style="background-image: url(/assets/img/default.jpg);"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             alt="{{content.title}}" (click)="imgClick(content.id + ' ' + content.title)" >
+      </ng-template>
+
 
       <p>{{ content.description }}</p>
 
