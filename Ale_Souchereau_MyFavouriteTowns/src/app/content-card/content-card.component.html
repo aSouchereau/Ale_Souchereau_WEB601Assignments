@@ -1,7 +1,7 @@
 <div class="content-card content-{{content.type}}" id="content-card-{{content.id}}">
   <header>
     <h2>{{ content.title }}</h2>
-    <span *ngIf="content.type">{{content.type | titlecase}}</span>
+    <span *ngIf="content.type" [appHoverEffect]='"underline"'>{{content.type | titlecase}}</span>
   </header>
 
   <ng-container class="card-img-wrapper" *ngIf="content.imgURL; then customImg; else defaultImg;">
@@ -23,7 +23,7 @@
 
   <footer>
     <div class="content-tag-wrapper" *ngIf="content.tags">
-      <span *ngFor="let tag of content.tags; index as t" class="content-tag">{{tag}}</span>
+      <span *ngFor="let tag of content.tags; index as t" class="content-tag" [appHoverEffect]='"bold"'>{{tag}}</span>
     </div>
     {{ content.creator }}
   </footer>
