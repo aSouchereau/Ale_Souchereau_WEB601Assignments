@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Content} from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-create-content',
@@ -8,9 +8,20 @@ import {NgForm} from "@angular/forms";
 })
 export class CreateContentComponent {
 
+  @Output() newTownEvent = new EventEmitter<Content>();
 
-  submitHandler(formData: NgForm) {
-    console.log(formData.value);
-    console.log(formData.valid);
+  newTownItem: Content = {
+    id: 0,
+    title: "",
+    description: "",
+    creator: "",
+    imgURL: "",
+    type: "",
+    tags: []
+  };
+
+
+  submitHandler() {
+    this.newTownEvent.emit(this.newTownItem);
   }
 }
