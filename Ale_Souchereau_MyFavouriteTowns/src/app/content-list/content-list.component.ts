@@ -89,4 +89,11 @@ export class ContentListComponent {
   onSearchSubmit() {
     this.searchResult.success = this.contentList.filter(c => c.title === this.searchTerm).length > 0;
   }
+
+  addTownItem(newItem: Content) {
+    this.contentList.push(newItem);
+    this.contentList = [...this.contentList];
+    console.log(newItem);
+    console.log(this.contentList);
+  }
 }
