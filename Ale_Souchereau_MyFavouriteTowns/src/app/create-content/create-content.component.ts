@@ -22,6 +22,8 @@ export class CreateContentComponent {
 
 
   submitHandler() {
+    if (this.newTownItem.tags)
+      this.newTownItem.tags = this.newTownItem.tags.toString().split(',');
     this.newTownEvent.emit(this.newTownItem);
   }
 }
