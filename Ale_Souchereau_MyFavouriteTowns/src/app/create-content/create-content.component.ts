@@ -20,14 +20,29 @@ export class CreateContentComponent {
     tags: []
   };
 
+  currentError: string = "";
 
   submitHandler() {
     this.emitNewItem()
       .then((success) => {
-        console.log(success);
+        console.log(success + ' ' +this.newTownItem.title);
+        // clear error message
+        this.currentError = "";
+        // clear input fields
+        this.newTownItem = {
+          id: 0,
+          title: "",
+          description: "",
+          creator: "",
+          imgURL: "",
+          type: "",
+          tags: []
+        }
+
       })
       .catch((err) => {
         console.log(err);
+        this.currentError = err;
       });
   }
 
