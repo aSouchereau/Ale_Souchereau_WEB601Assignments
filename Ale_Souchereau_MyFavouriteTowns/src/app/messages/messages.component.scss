@@ -1,0 +1,17 @@
+.message {
+  padding: 1rem 1.75rem;
+  background-color: rgba(25, 118, 210, 0.15);
+  border-left: 8px solid #1976d2;
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  font-weight: bold;
+  color: #125699;
+  text-decoration: underline;
+  cursor: pointer;
+}
