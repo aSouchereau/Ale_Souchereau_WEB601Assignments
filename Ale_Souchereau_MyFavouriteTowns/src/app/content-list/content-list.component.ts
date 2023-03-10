@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Output} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {TownService} from "../services/town.service";
 

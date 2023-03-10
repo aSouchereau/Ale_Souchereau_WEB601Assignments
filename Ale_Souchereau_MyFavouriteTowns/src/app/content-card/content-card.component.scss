@@ -53,6 +53,9 @@
   color: black;
 }
 
+:host#featured-town .content-card {
+  box-shadow: red 10px 10px 10px;
+}
 
 /*.content-list-wrapper li:first-of-type .content-card {
   border: 2px solid black;

@@ -13,4 +13,8 @@ export class TownService {
   getTowns(): Observable<Content[]> {
     return of(TOWNS);
   }
+
+  getSingleTown(id:number): Observable<Content> {
+    return of(TOWNS[id]);
+  }
 }
